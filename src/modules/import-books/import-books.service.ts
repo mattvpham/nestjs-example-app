@@ -1,5 +1,5 @@
 import { MikroORM } from '@mikro-orm/core';
-import { EntityManager, PostgreSqlDriver } from '@mikro-orm/postgresql';
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Injectable } from '@nestjs/common';
 import { Book } from '../../entities';
 import { BookTagService } from '../../modules/book-tag/book-tag.service';

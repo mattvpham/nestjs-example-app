@@ -7,6 +7,7 @@ import { BookTag } from '../../entities';
 @Injectable()
 export class BookTagService {
   constructor(
+    // I want to grab the em with the transaction here
     private readonly orm: MikroORM<PostgreSqlDriver>,
 
     @InjectRepository(BookTag)
@@ -22,6 +23,8 @@ export class BookTagService {
 
   async bulkCreate(tagInputs: BookTag[]) {
     console.log('book-tags-service');
+    // I want to use an existing transaction here if it exists,
+    //   otherwise start a new one
     console.log(this.orm.em.isInTransaction());
 
     const em = this.orm.em.fork();
